@@ -9,5 +9,12 @@
     mc:Ignorable="d">
 
     <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock x:Name="lblId" Text="{Binding CurrentCar.Id}"/>
+        <TextBox x:Name="txtFirm" Text="{Binding CurrentCar.Firm}"/>
+        <TextBox x:Name="txtModel" Text="{Binding CurrentCar.Model}"/>
+        <TextBox x:Name="txtYear" Text="{Binding CurrentCar.Year}"/>
+        <TextBox x:Name="txtPrice" Text="{Binding CurrentCar.Price}"/>
+        <TextBox x:Name="txtURI" Text="{Binding CurrentCar.ImageURI}"/>
+        <Button x:Name="btnAdd" Content="Add Car to Store"/>
     </StackPanel>
 </Page>

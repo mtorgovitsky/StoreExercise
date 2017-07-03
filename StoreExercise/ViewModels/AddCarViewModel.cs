@@ -13,6 +13,7 @@ namespace StoreExercise.ViewModels
 {
     public class AddCarViewModel : ViewModelBase
     {
+        private readonly Random rnd = new Random();
         private readonly IDataManager _dataManager;
 
         public Car CurrentCar { get; set; }
@@ -20,11 +21,11 @@ namespace StoreExercise.ViewModels
 
         public AddCarViewModel()
         {
-            CurrentCar = new Car();
+            CurrentCar = new Car { Id = rnd.Next() };
 
             AddCarCommand = new RelayCommand(() =>
             {
-
+                _dataManager.Insert(CurrentCar);
             });
         }
     }

@@ -26,5 +26,10 @@ namespace StoreExercise
         {
             this.InitializeComponent();
         }
+
+        private void btnSplit_Click(object sender, RoutedEventArgs e)
+        {
+            spltView.IsPaneOpen = !spltView.IsPaneOpen;
+        }
     }
 }

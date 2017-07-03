@@ -9,5 +9,39 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <RelativePanel>
+            <Button x:Name="btnSplit" Content="&#xE700;" FontFamily="Segoe MDL2 Assets" FontSize="36" Click="btnSplit_Click"/>
+        </RelativePanel>
+
+        <SplitView Grid.Row="1" x:Name="spltView">
+            <SplitView.Pane>
+                <ListBox SelectionMode="Single">
+                    <ListBoxItem>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="36" Text="&#xE730;"/>
+                            <TextBlock FontSize="24" Text="Home" Margin="20,0,0,0" />
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
+            </SplitView.Pane>
+            <SplitView.Content>
+                <StackPanel>
+                    <ListBox x:Name="lstCustomers" ItemsSource="{Binding Customers}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+            </SplitView.Content>
+        </SplitView>
+
     </Grid>
 </Page>

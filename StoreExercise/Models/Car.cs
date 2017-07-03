@@ -12,6 +12,7 @@ namespace StoreExercise.Models
         public string Model { get; set; }
         public string Firm { get; set; }
         public int Year { get; set; }
+        public int Price { get; set; }
         public string ImageURI { get; set; }
     }
 }
