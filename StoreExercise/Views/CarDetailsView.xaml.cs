@@ -1,4 +1,6 @@
-﻿using System;
+﻿using StoreExercise.Models;
+using StoreExercise.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +27,14 @@ namespace StoreExercise.Views
         public CarDetailsView()
         {
             this.InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var newCar = e.Parameter as Car;
+            ((CarDetailsViewModel)DataContext).SelectedCar = newCar;
+
+            base.OnNavigatedTo(e);
         }
     }
 }

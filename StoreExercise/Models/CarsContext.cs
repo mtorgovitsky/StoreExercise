@@ -13,8 +13,9 @@ namespace StoreExercise.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=cars.sql3");
-            
+            optionsBuilder.UseSqlite("Data Source=customers.db");
+            //optionsBuilder.UseSqlite("Data Source=cars.sql3");
+
             //base.OnConfiguring(optionsBuilder);
         }
     }
