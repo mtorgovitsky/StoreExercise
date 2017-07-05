@@ -19,7 +19,7 @@ namespace StoreExercise.ViewModels
                     return db.Cars.Select(c => c).ToList();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
             }
 

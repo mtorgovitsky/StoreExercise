@@ -8,7 +8,7 @@ using StoreExercise.Models;
 namespace StoreExercise.Migrations
 {
     [DbContext(typeof(CarsContext))]
-    [Migration("20170703134052_FirstMigration")]
+    [Migration("20170705154906_First Migration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
