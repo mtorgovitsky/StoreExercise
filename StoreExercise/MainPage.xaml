@@ -34,7 +34,7 @@
             </SplitView.Pane>
             <SplitView.Content>
                 <StackPanel>
-                    <ListBox x:Name="lstCars" ItemsSource="{Binding Customers}" SelectionMode="Single">
+                    <ListBox x:Name="lstCars" ItemsSource="{Binding Cars}">
 
                         <ListBox.ItemTemplate>
                             <DataTemplate>
