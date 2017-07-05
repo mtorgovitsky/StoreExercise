@@ -5,6 +5,8 @@
     xmlns:local="using:StoreExercise"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -31,13 +33,21 @@
             </SplitView.Pane>
             <SplitView.Content>
                 <StackPanel>
-                    <ListBox x:Name="lstCustomers" ItemsSource="{Binding Customers}">
+                    <ListBox x:Name="lstCars" ItemsSource="{Binding Customers}">
+
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
+
+                        <i:Interaction.Behaviors>
+                            <core:EventTriggerBehavior EventName="SelectionChanged">
+                                <core:InvokeCommandAction Command="{Binding CarDetailsClick}" CommandParameter="{Binding ElementName=lstCars, Path=SelectedItem}"/>
+                            </core:EventTriggerBehavior>
+                        </i:Interaction.Behaviors>
+
                     </ListBox>
                 </StackPanel>
             </SplitView.Content>

@@ -20,6 +20,7 @@ namespace StoreExercise.ViewModels
 
         public ObservableCollection<Car> Cars { get; set; }
         public ICommand AddToCard { get; set; }
+        public RelayCommand<Car> CarDetailsClick { get; set; }
         public RelayCommand<Car> CarDetailsCommand { get; set; }
 
         public MainViewModel(IDataManager dataManager, INavigationService navService)
