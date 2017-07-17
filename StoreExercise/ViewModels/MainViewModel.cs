@@ -15,6 +15,8 @@ namespace StoreExercise.ViewModels
 {
     public class MainViewModel : ViewModelBase
     {
+        private const string IMAGE_URI = "ms-appx://StoreExercise/Assets/sabra.jpg";
+
         private readonly IDataManager _dataManager;
         private readonly INavigationService _navService;
 
@@ -38,7 +40,7 @@ namespace StoreExercise.ViewModels
 
             #region Mock For Initial Car Collection - Remove After testing
 
-            Uri imgURI = new Uri("ms-appx://StoreExercise/Assets/sabra.jpg");
+            Uri imgURI = new Uri(IMAGE_URI);
             for (int i = 0; i < 3; i++)
             {
                 Cars.Add(new Car

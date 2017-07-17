@@ -10,5 +10,6 @@
 
     <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock x:Name="txtCarModel" Text="{Binding SelectedCar.Model}"/>
+        <Image x:Name="imgCarModel" Source="{Binding SelectedCar.ImageURI}"/>
     </StackPanel>
 </Page>
