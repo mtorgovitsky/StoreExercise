@@ -27,7 +27,7 @@
                     <ListBoxItem>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="36" Text="&#xE730;"/>
-                            <Button FontSize="24" Content="Home" Margin="20,0,0,0" />
+                            <Button FontSize="24" Content="Home" Margin="20,0,0,0" Command="{Binding GoToShoppingCard}" />
                         </StackPanel>
                     </ListBoxItem>
                 </ListBox>

@@ -101,13 +101,9 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20170717124826_firstMigration.cs" />
-    <Compile Include="Migrations\20170717124826_firstMigration.designer.cs">
-      <DependentUpon>20170717124826_firstMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\20170717125757_Shopping Card Migration.cs" />
-    <Compile Include="Migrations\20170717125757_Shopping Card Migration.designer.cs">
-      <DependentUpon>20170717125757_Shopping Card Migration.cs</DependentUpon>
+    <Compile Include="Migrations\20170717131415_firstMigration.cs" />
+    <Compile Include="Migrations\20170717131415_firstMigration.designer.cs">
+      <DependentUpon>20170717131415_firstMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\CarsContextModelSnapshot.cs" />
     <Compile Include="Models\Car.cs" />

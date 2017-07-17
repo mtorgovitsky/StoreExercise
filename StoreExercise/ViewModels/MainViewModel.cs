@@ -21,17 +21,21 @@ namespace StoreExercise.ViewModels
         private readonly INavigationService _navService;
 
         public ObservableCollection<Car> Cars { get; set; }
+        public ObservableCollection<Car> ShoppingCard { get; set; }
         public RelayCommand<Car> AddToCard { get; set; }
         public RelayCommand<Car> CarDetailsCommand { get; set; }
+        public RelayCommand GoToShoppingCard { get; set; }
 
         public MainViewModel(IDataManager dataManager, INavigationService navService)
         {
             _dataManager = dataManager;
             _navService = navService;
-           
 
             Cars = new ObservableCollection<Car>(_dataManager.GetAll());
             RaisePropertyChanged(nameof(Cars));
+
+            ShoppingCard = new ObservableCollection<Car>(_dataManager.GetShoppingCard());
+            RaisePropertyChanged(nameof(ShoppingCard));
 
             CarDetailsCommand = new RelayCommand<Car>((c) =>
             {
@@ -40,7 +44,12 @@ namespace StoreExercise.ViewModels
 
             AddToCard = new RelayCommand<Car>((c) =>
             {
+                _dataManager.AddToCard(c);
+            });
 
+            GoToShoppingCard = new RelayCommand(() =>
+            {
+                _navService.NavigateTo("ShoppingCardView");
             });
 
             #region Mock For Initial Car Collection - Remove After testing

@@ -22,6 +22,24 @@ namespace StoreExercise.ViewModels
             }
             catch (Exception ex)
             {
+                Debug.WriteLine(ex.Message);
+            }
+
+            return null;
+        }
+
+        public List<Car> GetShoppingCard()
+        {
+            try
+            {
+                using (var db = new CarsContext())
+                {
+                    return db.ShoppingCard.Select(c => c).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
             }
 
             return null;
@@ -40,7 +58,28 @@ namespace StoreExercise.ViewModels
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
+                return false;
             }
+
+            return true;
+        }
+
+        public bool AddToCard(Car shopCar)
+        {
+            try
+            {
+                using (var db = new CarsContext())
+                {
+                    db.ShoppingCard.Add(shopCar);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return false;
+            }
+
             return true;
         }
     }

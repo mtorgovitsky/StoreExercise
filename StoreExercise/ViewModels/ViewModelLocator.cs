@@ -29,6 +29,7 @@ namespace StoreExercise.ViewModels
             var navService = new NavigationService();
             navService.Configure(nameof(MainPage), typeof(MainPage));
             navService.Configure(nameof(CarDetailsView), typeof(CarDetailsView));
+            navService.Configure(nameof(ShoppingCardView), typeof(ShoppingCardView));
 
             SimpleIoc.Default.Register<INavigationService>(() => navService);
         }

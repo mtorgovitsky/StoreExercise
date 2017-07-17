@@ -12,5 +12,10 @@ namespace StoreExercise.Infra
         List<Car> GetAll();
 
         bool Insert(Car newCar);
+
+        List<Car> GetShoppingCard();
+
+        bool AddToCard(Car newCar);
+
     }
 }
