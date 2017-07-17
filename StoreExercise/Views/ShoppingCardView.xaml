@@ -5,10 +5,25 @@
     xmlns:local="using:StoreExercise.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    DataContext=""
+    DataContext="{Binding ShoppingCardVM, Source={StaticResource Locator}}"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ListBox x:Name="lstCars" ItemsSource="{Binding CarsToBuy}">
 
-    </Grid>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Id}" FontSize="26"/>
+                        <TextBlock Text="{Binding Firm}" FontSize="26"/>
+                        <TextBlock Text="{Binding Year}" FontSize="26"/>
+                        <TextBlock Text="{Binding Model}" FontSize="26"/>
+                        <TextBlock Text="{Binding Price}" FontSize="26"/>
+                        <Image Source="{Binding ImageURI}" Width="200" Height="200"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+
+        </ListBox>
+    </StackPanel>
 </Page>

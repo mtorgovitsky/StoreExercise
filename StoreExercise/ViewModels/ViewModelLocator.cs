@@ -43,5 +43,10 @@ namespace StoreExercise.ViewModels
         {
             get { return ServiceLocator.Current.GetInstance<CarDetailsViewModel>(); }
         }
+
+        public ShoppingCardViewModel ShoppingCardVM
+        {
+            get { return ServiceLocator.Current.GetInstance<ShoppingCardViewModel>(); }
+        }
     }
 }
