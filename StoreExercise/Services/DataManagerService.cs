@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using StoreExercise.Models;
+using System.Diagnostics;
 
 namespace StoreExercise.ViewModels
 {
@@ -36,8 +37,9 @@ namespace StoreExercise.ViewModels
                     db.SaveChanges();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Debug.WriteLine(ex.Message);
             }
             return true;
         }

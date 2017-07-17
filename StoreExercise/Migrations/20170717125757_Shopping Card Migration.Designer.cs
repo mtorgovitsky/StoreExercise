@@ -8,8 +8,8 @@ using StoreExercise.Models;
 namespace StoreExercise.Migrations
 {
     [DbContext(typeof(CarsContext))]
-    [Migration("20170705154906_First Migration")]
-    partial class FirstMigration
+    [Migration("20170717125757_Shopping Card Migration")]
+    partial class ShoppingCardMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,7 +33,7 @@ namespace StoreExercise.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cars");
+                    b.ToTable("Car");
                 });
         }
     }

@@ -101,9 +101,13 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20170705154906_First Migration.cs" />
-    <Compile Include="Migrations\20170705154906_First Migration.designer.cs">
-      <DependentUpon>20170705154906_First Migration.cs</DependentUpon>
+    <Compile Include="Migrations\20170717124826_firstMigration.cs" />
+    <Compile Include="Migrations\20170717124826_firstMigration.designer.cs">
+      <DependentUpon>20170717124826_firstMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20170717125757_Shopping Card Migration.cs" />
+    <Compile Include="Migrations\20170717125757_Shopping Card Migration.designer.cs">
+      <DependentUpon>20170717125757_Shopping Card Migration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\CarsContextModelSnapshot.cs" />
     <Compile Include="Models\Car.cs" />
@@ -112,6 +116,7 @@
     <Compile Include="ViewModels\AddCarViewModel.cs" />
     <Compile Include="Services\DataManagerService.cs" />
     <Compile Include="ViewModels\CarDetailsViewModel.cs" />
+    <Compile Include="ViewModels\ShoppingCardViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\AddCarView.xaml.cs">
@@ -119,6 +124,9 @@
     </Compile>
     <Compile Include="Views\CarDetailsView.xaml.cs">
       <DependentUpon>CarDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShoppingCardView.xaml.cs">
+      <DependentUpon>ShoppingCardView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CarDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShoppingCardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
