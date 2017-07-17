@@ -34,7 +34,7 @@
             </SplitView.Pane>
             <SplitView.Content>
                 <StackPanel>
-                    <!--<ListBox x:Name="lstCars" ItemsSource="{Binding Cars}">
+                    <ListBox x:Name="lstCars" ItemsSource="{Binding Cars}">
 
                         <ListBox.ItemTemplate>
                             <DataTemplate>
@@ -44,6 +44,7 @@
                                     <TextBlock Text="{Binding Year}" FontSize="26"/>
                                     <TextBlock Text="{Binding Model}" FontSize="26"/>
                                     <TextBlock Text="{Binding Price}" FontSize="26"/>
+                                    <Image Source="{Binding ImageURI}" Width="200" Height="200"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -54,7 +55,7 @@
                             </core:EventTriggerBehavior>
                         </i:Interaction.Behaviors>
 
-                    </ListBox>-->
+                    </ListBox>
                 </StackPanel>
             </SplitView.Content>
         </SplitView>

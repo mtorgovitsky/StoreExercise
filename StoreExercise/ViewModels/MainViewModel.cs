@@ -37,10 +37,20 @@ namespace StoreExercise.ViewModels
             });
 
             #region Mock For Initial Car Collection - Remove After testing
-            //for (int i = 0; i < 3; i++)
-            //{
-            //    Cars.Add(new Car { Model = $"0{i} Model", Firm = $"0{i} Firm", Id = i, Price = 69000, Year = 2014 + i });
-            //}
+
+            Uri imgURI = new Uri("ms-appx://StoreExercise/Assets/sabra.jpg");
+            for (int i = 0; i < 3; i++)
+            {
+                Cars.Add(new Car
+                {
+                    Model = $"0{i} Model",
+                    Firm = $"0{i} Firm",
+                    Id = i,
+                    Price = 69000,
+                    Year = 2014 + i,
+                    ImageURI = imgURI.ToString()
+                });
+            }
             #endregion
         }
     }
