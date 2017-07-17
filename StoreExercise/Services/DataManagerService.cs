@@ -22,7 +22,7 @@ namespace StoreExercise.ViewModels
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                LogToDebug(ex);
             }
 
             return null;
@@ -39,7 +39,7 @@ namespace StoreExercise.ViewModels
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                LogToDebug(ex);
             }
 
             return null;
@@ -57,7 +57,7 @@ namespace StoreExercise.ViewModels
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                LogToDebug(ex);
                 return false;
             }
 
@@ -76,11 +76,16 @@ namespace StoreExercise.ViewModels
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.Message);
+                LogToDebug(ex);
                 return false;
             }
 
             return true;
+        }
+
+        private void LogToDebug (Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
         }
     }
 }
