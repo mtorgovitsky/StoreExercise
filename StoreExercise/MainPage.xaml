@@ -33,30 +33,28 @@
                 </ListBox>
             </SplitView.Pane>
             <SplitView.Content>
-                <StackPanel>
-                    <ListBox x:Name="lstCars" ItemsSource="{Binding Cars}">
+                        <ListBox x:Name="lstCars" ItemsSource="{Binding Cars}">
 
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <TextBlock Text="{Binding Id}" FontSize="26"/>
-                                    <TextBlock Text="{Binding Firm}" FontSize="26"/>
-                                    <TextBlock Text="{Binding Year}" FontSize="26"/>
-                                    <TextBlock Text="{Binding Model}" FontSize="26"/>
-                                    <TextBlock Text="{Binding Price}" FontSize="26"/>
-                                    <Image Source="{Binding ImageURI}" Width="200" Height="200"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Id}" FontSize="26"/>
+                                        <TextBlock Text="{Binding Firm}" FontSize="26"/>
+                                        <TextBlock Text="{Binding Year}" FontSize="26"/>
+                                        <TextBlock Text="{Binding Model}" FontSize="26"/>
+                                        <TextBlock Text="{Binding Price}" FontSize="26"/>
+                                        <Image Source="{Binding ImageURI}" Width="200" Height="200"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
 
-                        <i:Interaction.Behaviors>
-                            <core:EventTriggerBehavior EventName="SelectionChanged">
-                                <core:InvokeCommandAction Command="{Binding CarDetailsCommand}" CommandParameter="{Binding ElementName=lstCars, Path=SelectedItem}"/>
-                            </core:EventTriggerBehavior>
-                        </i:Interaction.Behaviors>
+                            <i:Interaction.Behaviors>
+                                <core:EventTriggerBehavior EventName="SelectionChanged">
+                                    <core:InvokeCommandAction Command="{Binding CarDetailsCommand}" CommandParameter="{Binding ElementName=lstCars, Path=SelectedItem}"/>
+                                </core:EventTriggerBehavior>
+                            </i:Interaction.Behaviors>
 
-                    </ListBox>
-                </StackPanel>
+                        </ListBox>
             </SplitView.Content>
         </SplitView>
 
