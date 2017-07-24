@@ -10,7 +10,7 @@ namespace StoreExercise.Models
     public class CarsContext : DbContext
     {
         public DbSet<Car> Cars { get; set; }
-        public DbSet<Car> ShoppingCard { get; set; }
+        public DbSet<ShoppingItem> ShoppingCard { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

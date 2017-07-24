@@ -20,6 +20,9 @@ namespace StoreExercise.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired();
+
                     b.Property<string>("Firm");
 
                     b.Property<string>("ImageURI");
@@ -32,7 +35,19 @@ namespace StoreExercise.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Car");
+                    b.ToTable("Cars");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Car");
+                });
+
+            modelBuilder.Entity("StoreExercise.Models.ShoppingItem", b =>
+                {
+                    b.HasBaseType("StoreExercise.Models.Car");
+
+
+                    b.ToTable("ShoppingItem");
+
+                    b.HasDiscriminator().HasValue("ShoppingItem");
                 });
         }
     }

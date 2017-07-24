@@ -1,5 +1,6 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using StoreExercise.Infra;
 using StoreExercise.Models;
 using System;
 using System.Collections.Generic;
@@ -12,24 +13,37 @@ namespace StoreExercise.ViewModels
 {
     public class ShoppingCardViewModel : ViewModelBase
     {
-        public ObservableCollection<Car> CarsToBuy { get; set; }
+        public ObservableCollection<ShoppingItem> ItemsToBuy { get; set; }
+
+        private readonly IDataManager _dataManager;
 
         public int ItemsCount
         {
             get
             {
-                return CarsToBuy.Count;
+                return ItemsToBuy.Count;
             }
             private set { }
         }
 
-        public RelayCommand<Car> RemoveFromCard { get; set; }
-        public RelayCommand<Car> Buy { get; set; }
-        public RelayCommand<Car> Clear { get; set; }
+        public RelayCommand<ShoppingItem> RemoveFromCard { get; set; }
+        public RelayCommand<ShoppingItem> Buy { get; set; }
+        public RelayCommand<ShoppingItem> Clear { get; set; }
 
-        public ShoppingCardViewModel()
+        public ShoppingCardViewModel(IDataManager dataManager)
         {
+            _dataManager = dataManager;
 
+            ItemsToBuy = new ObservableCollection<ShoppingItem>(_dataManager.GetShoppingCard());
+            RaisePropertyChanged(nameof(ItemsToBuy));
+
+            RemoveFromCard = new RelayCommand<ShoppingItem>((c) =>
+            {
+                if (_dataManager.RemoveFromCard(c))
+                {
+                    ItemsToBuy.Remove(c);
+                }
+            });
         }
     }
 }

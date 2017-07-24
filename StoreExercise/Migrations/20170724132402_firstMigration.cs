@@ -9,11 +9,12 @@ namespace StoreExercise.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Car",
+                name: "Cars",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    Discriminator = table.Column<string>(nullable: false),
                     Firm = table.Column<string>(nullable: true),
                     ImageURI = table.Column<string>(nullable: true),
                     Model = table.Column<string>(nullable: true),
@@ -22,14 +23,14 @@ namespace StoreExercise.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Car", x => x.Id);
+                    table.PrimaryKey("PK_Cars", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Car");
+                name: "Cars");
         }
     }
 }

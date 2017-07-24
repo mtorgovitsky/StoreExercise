@@ -28,7 +28,7 @@ namespace StoreExercise.ViewModels
             return null;
         }
 
-        public List<Car> GetShoppingCard()
+        public List<ShoppingItem> GetShoppingCard()
         {
             try
             {
@@ -64,12 +64,13 @@ namespace StoreExercise.ViewModels
             return true;
         }
 
-        public bool AddToCard(Car shopCar)
+        public bool AddToCard(ShoppingItem shopCar)
         {
             try
             {
                 using (var db = new CarsContext())
                 {
+                    shopCar.Id = 0;
                     db.ShoppingCard.Add(shopCar);
                     db.SaveChanges();
                 }
@@ -86,6 +87,25 @@ namespace StoreExercise.ViewModels
         private void LogToDebug (Exception ex)
         {
             Debug.WriteLine(ex.Message);
+        }
+
+        public bool RemoveFromCard(ShoppingItem itemToRemove)
+        {
+            try
+            {
+                using (var db = new CarsContext())
+                {
+                    db.ShoppingCard.Remove(itemToRemove);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                LogToDebug(ex);
+                return false;
+            }
+
+            return true;
         }
     }
 }

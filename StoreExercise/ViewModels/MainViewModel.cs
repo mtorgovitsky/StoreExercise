@@ -21,8 +21,8 @@ namespace StoreExercise.ViewModels
         private readonly INavigationService _navService;
 
         public ObservableCollection<Car> Cars { get; set; }
-        public ObservableCollection<Car> ShoppingCard { get; set; }
-        public RelayCommand<Car> AddToCard { get; set; }
+        public ObservableCollection<ShoppingItem> ShoppingCard { get; set; }
+        public RelayCommand<ShoppingItem> AddToCard { get; set; }
         public RelayCommand<Car> CarDetailsCommand { get; set; }
         public RelayCommand GoToShoppingCard { get; set; }
 
@@ -34,7 +34,7 @@ namespace StoreExercise.ViewModels
             Cars = new ObservableCollection<Car>(_dataManager.GetAll());
             RaisePropertyChanged(nameof(Cars));
 
-            ShoppingCard = new ObservableCollection<Car>(_dataManager.GetShoppingCard());
+            ShoppingCard = new ObservableCollection<ShoppingItem>(_dataManager.GetShoppingCard());
             RaisePropertyChanged(nameof(ShoppingCard));
 
             CarDetailsCommand = new RelayCommand<Car>((c) =>
@@ -42,7 +42,7 @@ namespace StoreExercise.ViewModels
                 _navService.NavigateTo("CarDetailsView", c);
             });
 
-            AddToCard = new RelayCommand<Car>((c) =>
+            AddToCard = new RelayCommand<ShoppingItem>((c) =>
             {
                 _dataManager.AddToCard(c);
             });
@@ -54,18 +54,18 @@ namespace StoreExercise.ViewModels
 
             #region Mock For Initial Car Collection - Remove After testing
             Uri imgURI = new Uri(IMAGE_URI);
-            for (int i = 0; i < 3; i++)
-            {
-                dataManager.Insert(new Car
-                {
-                    Model = $"0{i} Model",
-                    Firm = $"0{i} Firm",
-                    //Id = i,
-                    Price = 69000,
-                    Year = 2014 + i,
-                    ImageURI = imgURI.ToString()
-                });
-            }
+            //for (int i = 0; i < 6; i++)
+            //{
+            //    dataManager.Insert(new Car
+            //    {
+            //        Model = $"0{i} Model",
+            //        Firm = $"0{i} Firm",
+            //        //Id = i,
+            //        Price = 69000,
+            //        Year = 2014 + i,
+            //        ImageURI = imgURI.ToString()
+            //    });
+            //}
             #endregion
         }
     }

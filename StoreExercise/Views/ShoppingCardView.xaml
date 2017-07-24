@@ -8,22 +8,20 @@
     DataContext="{Binding ShoppingCardVM, Source={StaticResource Locator}}"
     mc:Ignorable="d">
 
-    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListBox x:Name="lstCars" ItemsSource="{Binding CarsToBuy}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <ListBox x:Name="lstShoppingCars" ItemsSource="{Binding CarsToBuy}">
 
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding Id}" FontSize="26"/>
-                        <TextBlock Text="{Binding Firm}" FontSize="26"/>
                         <TextBlock Text="{Binding Year}" FontSize="26"/>
                         <TextBlock Text="{Binding Model}" FontSize="26"/>
                         <TextBlock Text="{Binding Price}" FontSize="26"/>
-                        <Image Source="{Binding ImageURI}" Width="200" Height="200"/>
+                        <Button x:Name="btnRemoveFormCard" Content="Remove form Shopping Card" Command="{Binding DataContext.RemoveFromCard, ElementName=lstShoppingCars}" CommandParameter="{Binding}" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
 
         </ListBox>
-    </StackPanel>
+    </Grid>
 </Page>

@@ -8,7 +8,7 @@ using StoreExercise.Models;
 namespace StoreExercise.Migrations
 {
     [DbContext(typeof(CarsContext))]
-    [Migration("20170717131415_firstMigration")]
+    [Migration("20170724132402_firstMigration")]
     partial class firstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,6 +20,9 @@ namespace StoreExercise.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired();
 
                     b.Property<string>("Firm");
 
@@ -33,7 +36,19 @@ namespace StoreExercise.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Car");
+                    b.ToTable("Cars");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Car");
+                });
+
+            modelBuilder.Entity("StoreExercise.Models.ShoppingItem", b =>
+                {
+                    b.HasBaseType("StoreExercise.Models.Car");
+
+
+                    b.ToTable("ShoppingItem");
+
+                    b.HasDiscriminator().HasValue("ShoppingItem");
                 });
         }
     }

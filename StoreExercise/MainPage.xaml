@@ -33,6 +33,7 @@
                 </ListBox>
             </SplitView.Pane>
             <SplitView.Content>
+                
                 <ListBox x:Name="lstCars" ItemsSource="{Binding Cars}">
 
                     <ListBox.ItemTemplate>
@@ -59,6 +60,7 @@
                     </i:Interaction.Behaviors>-->
 
                 </ListBox>
+            
             </SplitView.Content>
         </SplitView>
 
